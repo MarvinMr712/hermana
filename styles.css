@@ -1,0 +1,384 @@
+/* ========== RESET & BASE ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(145deg, #fef9f0 0%, #ffe6f0 100%);
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: #3b2b2f;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Fuentes importadas */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+h1, h2, h3, .signature, .section-title {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Burbujas flotantes */
+.bg-bubble {
+    position: fixed;
+    background: radial-gradient(circle, rgba(255,192,203,0.35) 0%, rgba(255,220,210,0.2) 100%);
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+    will-change: transform;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+/* Sección hero */
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+    margin-bottom: 5rem;
+    background: rgba(255, 245, 240, 0.65);
+    backdrop-filter: blur(3px);
+    border-radius: 4rem;
+    padding: 2rem 2rem;
+    box-shadow: 0 20px 35px -15px rgba(0, 0, 0, 0.05);
+}
+
+.hero-content {
+    flex: 1;
+    min-width: 250px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #c44569, #f7a1c4, #e66767);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.hero-content .sub {
+    font-size: 1.2rem;
+    color: #ac6f7c;
+    letter-spacing: -0.3px;
+    margin-bottom: 1.2rem;
+    border-left: 4px solid #f7a1c4;
+    padding-left: 1rem;
+}
+
+.hero-image {
+    flex: 0.8;
+    text-align: center;
+}
+
+/* ESTILO DEL VIDEO - MISMO TAMAÑO QUE LA IMAGEN ORIGINAL */
+.hero-video {
+    width: 320px;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 38% 62% 70% 30% / 40% 45% 55% 60%;
+    box-shadow: 0 25px 40px rgba(199, 112, 130, 0.25);
+    border: 4px solid white;
+    transition: transform 0.4s ease, box-shadow 0.3s;
+}
+
+.hero-video:hover {
+    transform: scale(1.02) rotate(1deg);
+    box-shadow: 0 30px 45px rgba(199, 112, 130, 0.35);
+}
+
+/* Sección de sentimientos */
+.feelings-section {
+    text-align: center;
+    margin: 4rem 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #b04e6f;
+    margin-bottom: 1rem;
+}
+
+.section-sub {
+    color: #a67a82;
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.feeling-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(5px);
+    border-radius: 2rem;
+    padding: 2rem 1.5rem;
+    transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(255, 215, 215, 0.6);
+    text-align: left;
+}
+
+.feeling-card:hover {
+    transform: translateY(-12px);
+    background: white;
+    box-shadow: 0 25px 35px -12px rgba(193, 101, 126, 0.25);
+    border-color: #ffcddc;
+}
+
+.feeling-icon {
+    font-size: 2.5rem;
+    color: #e68a9e;
+    margin-bottom: 1rem;
+}
+
+.feeling-card h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: #c45c7a;
+}
+
+.feeling-card p {
+    line-height: 1.5;
+    color: #4d353e;
+    font-size: 1rem;
+}
+
+/* Sección recuerdos */
+.memories {
+    margin: 5rem 0;
+    background: #fff5f7;
+    border-radius: 3rem;
+    padding: 2rem 2rem;
+    box-shadow: inset 0 1px 4px #ffe2e9, 0 20px 30px -15px rgba(0, 0, 0, 0.05);
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.8rem;
+    margin-top: 2rem;
+}
+
+.gallery-item {
+    flex: 1 1 200px;
+    max-width: 240px;
+    background: white;
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: 0 15px 25px -12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 30px -8px rgba(170, 100, 120, 0.3);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.caption {
+    padding: 1rem;
+    text-align: center;
+    font-weight: 500;
+    background: #ffffffdb;
+    color: #b3516e;
+    font-size: 0.9rem;
+}
+
+/* Carta especial */
+.letter-card {
+    background: #fffafc;
+    border-radius: 3rem;
+    padding: 2.5rem;
+    margin: 4rem 0;
+    box-shadow: 0 30px 40px -20px rgba(156, 80, 102, 0.2);
+    border: 1px solid #ffd9e3;
+    position: relative;
+}
+
+.letter-card::before {
+    content: "💕";
+    font-size: 3rem;
+    position: absolute;
+    top: -25px;
+    left: 30px;
+    background: white;
+    padding: 0 0.8rem;
+    border-radius: 100px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.letter-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-family: 'Inter', sans-serif;
+    color: #4a2e37;
+}
+
+.letter-text p {
+    margin-bottom: 1rem;
+}
+
+.signature {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    text-align: right;
+    margin-top: 1.5rem;
+    color: #d47292;
+    font-style: italic;
+}
+
+/* Botón interactivo */
+.interactive-love {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0 1rem;
+}
+
+.love-button {
+    background: linear-gradient(120deg, #1a1a1a, #2d2d2d);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 60px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+}
+
+.love-button i {
+    font-size: 1.2rem;
+    color: black;
+}
+
+.love-button:hover {
+    transform: scale(1.03);
+    background: linear-gradient(120deg, #000000, #1a1a1a);
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.5);
+}
+
+.love-button:active {
+    transform: scale(0.98);
+}
+
+#hugCounterMessage {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #000000;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    min-height: 3rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 0 2.5rem;
+    background: rgba(255, 240, 245, 0.6);
+    border-radius: 40px 40px 0 0;
+    margin-top: 2rem;
+    font-family: 'Inter', sans-serif;
+}
+
+footer p {
+    color: #b37b86;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 1.2rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .hero {
+        padding: 1.8rem;
+        border-radius: 2rem;
+    }
+    
+    .hero-video {
+        width: 260px;
+    }
+    
+    .letter-card {
+        padding: 1.8rem;
+    }
+    
+    .letter-text {
+        font-size: 1rem;
+    }
+}
+
+/* Botón de WhatsApp (NO flotante, dentro del contenido) */
+.whatsapp-btn-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(120deg, #25D366, #128C7E);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.whatsapp-btn-inline i {
+    font-size: 1.4rem;
+}
+
+.whatsapp-btn-inline:hover {
+    transform: scale(1.03);
+    background: linear-gradient(120deg, #128C7E, #075E54);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-btn-inline:active {
+    transform: scale(0.98);
+}
